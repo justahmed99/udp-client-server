@@ -17,7 +17,7 @@ gcc server.c -o server
 The to run the program, you can use this command :
 ```
 ./server
-./client [ip address of client] [filename.format]
+./client [ip address of server] [filename.format]
 ```
 
 ## BUGS !!
