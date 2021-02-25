@@ -11,7 +11,7 @@
 
 int main (int argc, char *argv[])
 {
-    char request[100], buffer[1000];
+    char request[100], buffer[20000];
     int byte_recv, fd;
 
     struct sockaddr_in address;
@@ -54,7 +54,7 @@ int main (int argc, char *argv[])
             sendto(sockfd, "File found!", sizeof("File found!"), 0, (struct sockaddr *)&address, sizeof(address));
             fclose(file);
             fd = open(request, O_RDONLY);
-            while ((byte_recv = read(fd, buffer, 1000)) > 0)
+            while ((byte_recv = read(fd, buffer, 20000)) > 0)
             {
                 sendto(sockfd, buffer, byte_recv, 0, (struct sockaddr*)&address, sizeof(address));
             }
