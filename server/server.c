@@ -123,7 +123,7 @@ int main(int argc, char *argv[])
                 memset(&frame, 0, sizeof(frame));
                 ack_num = 0;
                 frame.id = i;
-                frame.length = fread(frame.data, 1, DATA_BUFFER, file);
+                frame.length = fread(frame.data, 1, BUFF_SIZE, file);
 
                 sendto(sockfd, &(frame), sizeof(frame), 0, (struct sockaddr *)&address, sizeof(address));
                 recvfrom(sockfd, &(ack_num), sizeof(ack_num), 0, (struct sockaddr *)&address, (socklen_t *)&address_len);
